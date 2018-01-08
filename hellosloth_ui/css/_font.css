@@ -1,0 +1,30 @@
+@font-face{
+    font-family:"Avenir-LT-W01";
+    font-style: normal;
+    font-weight: 400;
+    src:url("../font/Avenir-LT-W01-Light.woff2") format("woff2");
+}
+@font-face{
+    font-family:"Avenir-LT-W01";
+    font-style: normal;
+    font-weight: 700;
+    src:url("../font/Avenir-LT-W01-Heavy.woff2") format("woff2");
+}
+@font-face{
+    font-family:"HelveticaNeue";
+    font-style: normal;
+    font-weight: 100;
+    src:url("../font/HelveticaNeue-W01-Light.woff") format("woff");
+}
+@font-face{
+    font-family:"HelveticaNeue";
+    font-style: normal;
+    font-weight: 400;
+    src:url("../font/HelveticaNeue-W01-Medium.woff") format("woff");
+}
+@font-face{
+    font-family:"HelveticaNeue";
+    font-style: normal;
+    font-weight: 700;
+    src:url("../font/HelveticaNeue-W01-Bold.woff") format("woff");
+}
