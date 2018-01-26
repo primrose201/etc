@@ -1,0 +1,16 @@
+html,body,.wrap{height:100%;}
+
+.tbl_wrap {position:fixed;top:70px;right:0;bottom:0;left:0;}
+.tbl {display:block;position:relative;overflow-y:auto;height:calc(100% - 65px);margin-top:65px;white-space:nowrap;}
+
+.tbl_head {position:fixed;top:70px;left:0;width:100%;}
+.tbl_head tr {display:block;}
+
+.tbl_body {display:block;overflow-x:auto;}
+.tbl_h {position:absolute;left:0;}
+
+.tbl_d:nth-child(2) div {width:120px;}
+.tbl_d:nth-child(3) div {width:176px;}
+.tbl_d:nth-child(4) div {width:80px;}
+.tbl_d:nth-child(5) div {width:300px;}
+.tbl_d:nth-child(6) {width:100%;}

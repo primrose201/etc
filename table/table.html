@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>table test</title>
+    <link rel="stylesheet" href="table.css">
+    <style>
+        /* reset */
+        body,header,main,h1,h2,table,tbody,tr,th,td {margin:0;padding:0;}
+        body {font-family:sans-serif;}
+        a {text-decoration:none;}
+        table {border-collapse:collapse;}
+
+        /* layout */
+        .header {height:70px;background-color:#424242;}
+        .header h1 {padding-left:30px;font-size:18px;line-height:70px;color:#fff;}
+
+        /* head */
+        .tbl_head {height:64px;border-bottom:1px solid #d0d0d0;background-color:#ededed;font-size:0;white-space:nowrap;}
+        .tbl_head::after {content:'';display:block;clear:both;}
+        .tbl_head_h {display:inline-block;padding:15px 20px;vertical-align:top;text-align:left;}
+        .tbl_head_h:nth-child(1) {width:120px;padding-left:50px;}
+        .tbl_head_h:nth-child(2) {width:176px;}
+        .tbl_head_h:nth-child(3) {width:80px;padding-right:54px;}
+        .tbl_head_h:nth-child(4) {width:160px;padding-right:38px;}
+        .tbl_head_h:nth-child(4) {width:300px;}
+        .tbl_head_h .link_sort {display:block;height:33px;font-size:12px;line-height:33px;color:#424242;}
+        .tbl_head_h .box_inp {display:block;position:relative;border-box;width:100%;height:33px;border-bottom:1px solid #9e9e9e;}
+        .tbl_head_h .inp_sort {box-sizing:border-box;width:100%;height:100%;padding-right:20px;border:0;background:transparent;outline:none;}
+        .tbl_head_h .btn_sort {content:'';position:absolute;top:10px;right:2px;width:16px;height:16px;border:0;background: url(http://www.clker.com/cliparts/w/r/Q/0/x/D/search-icon-light-grey-md.png) no-repeat 50% 50%/16px 16px;outline:none;cursor:pointer;}
+
+        /* table */
+        .tbl_h, .tbl_d {height:39px;line-height:39px;}
+        .tbl_h {width:30px;border-right:1px solid #ddd;background-color:#fff;font-size:10px;color:#9e9e9e;}
+        .tbl_d {padding:0 20px;font-size:12px;color:#9e9e9e;}
+        .tbl_d:nth-child(2) {width:120px;padding-left:50px;}
+        .tbl_d:nth-child(3) {width:176px;}
+        .tbl_d:nth-child(4) {width:80px;padding-right:54px;}
+        .tbl_d:nth-child(5) {width:160px;padding-right:38px;}
+        .tbl_d:nth-child(6) {width:300px;}
+
+        .row_error {background-color:#e57373;}
+        .row_warning {background-color:#fbc02d;}
+        .row_debug {background-color:#00d2af;}
+        .row_error .tbl_d, .row_warning .tbl_d, .row_debug .tbl_d {color:#fff;}
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <header class="header">
+        <h1>Logcat</h1>
+    </header>
+    <div class="tbl_wrap">
+        <table class="tbl">
+            <!-- Data sort -->
+            <thead class="tbl_head">
+            <tr>
+                <th class="tbl_head_h">
+                    <a href="#" class="link_sort">Type</a>
+                </th>
+                <th class="tbl_head_h">
+                    <a href="#" class="link_sort">Date</a>
+                </th>
+                <th class="tbl_head_h">
+                    <div class="box_inp">
+                        <input type="text" placeholder="PID" class="inp_sort">
+                        <button type="submit" aria-label="검색" class="btn_sort"></button>
+                    </div>
+                </th>
+                <th class="tbl_head_h">
+                    <div class="box_inp">
+                        <input type="text" placeholder="Tag" class="inp_sort">
+                        <button type="submit" aria-label="검색" class="btn_sort"></button>
+                    </div>
+                </th>
+                <th class="tbl_head_h">
+                    <div class="box_inp">
+                        <input type="text" placeholder="Log messages" class="inp_sort">
+                        <button type="submit" aria-label="검색" class="btn_sort"></button>
+                    </div>
+                </th>
+            </tr>
+            </thead>
+            <!-- Data table -->
+            <tbody class="tbl_body">
+            <tr>
+                <th class="tbl_h"><div>1</div></th>
+                <td class="tbl_d"><div>Verbos</div></td>
+                <td class="tbl_d"><div>01-11 11:59:45. 762</div></td>
+                <td class="tbl_d"><div>29789</div></td>
+                <td class="tbl_d"><div>push_service_factory</div></td>
+                <td class="tbl_d"><div>Explicit concurrent mark sweep GC freed</div></td>
+            </tr>
+            <tr>
+                <th class="tbl_h"><div>2</div></th>
+                <td class="tbl_d"><div>info</div></td>
+                <td class="tbl_d"><div>01-11 11:59:45. 762</div></td>
+                <td class="tbl_d"><div>29789</div></td>
+                <td class="tbl_d"><div>push_service_factory</div></td>
+                <td class="tbl_d"><div>Explicit concurrent mark sweep GC freed Explicit concurrent mark sweep GC freed Explicit concurrent mark sweep GC freed Explicit concurrent mark sweep GC freed Explicit concurrent mark sweep GC freed Explicit concurrent mark sweep GC freed</div></td>
+            </tr>
+            <tr>
+                <th class="tbl_h"><div>3</div></th>
+                <td class="tbl_d"><div>info</div></td>
+                <td class="tbl_d"><div>01-11 11:59:45. 762</div></td>
+                <td class="tbl_d"><div>29789</div></td>
+                <td class="tbl_d"><div>push_service_factory</div></td>
+                <td class="tbl_d"><div>Explicit concurrent mark sweep GC freed</div></td>
+            </tr>
+            <tr class="row_error">
+                <th class="tbl_h"><div>4</div></th>
+                <td class="tbl_d"><div>Error</div></td>
+                <td class="tbl_d"><div>01-11 11:59:45. 762</div></td>
+                <td class="tbl_d"><div>29789</div></td>
+                <td class="tbl_d"><div>push_service_factory</div></td>
+                <td class="tbl_d"><div>Explicit concurrent mark sweep GC freed</div></td>
+            </tr>
+            <tr class="row_warning">
+                <th class="tbl_h"><div>5</div></th>
+                <td class="tbl_d"><div>Warning</div></td>
+                <td class="tbl_d"><div>01-11 11:59:45. 762</div></td>
+                <td class="tbl_d"><div>29789</div></td>
+                <td class="tbl_d"><div>push_service_factory</div></td>
+                <td class="tbl_d"><div>Explicit concurrent mark sweep GC freed</div></td>
+            </tr>
+            <tr class="row_debug">
+                <th class="tbl_h"><div>6</div></th>
+                <td class="tbl_d"><div>Debug</div></td>
+                <td class="tbl_d"><div>01-11 11:59:45. 762</div></td>
+                <td class="tbl_d"><div>29789</div></td>
+                <td class="tbl_d"><div>push_service_factory</div></td>
+                <td class="tbl_d"><div>Explicit concurrent mark sweep GC freed</div></td>
+            </tr>
+            <tr>
+                <th class="tbl_h"><div>1</div></th>
+                <td class="tbl_d"><div>Verbos</div></td>
+                <td class="tbl_d"><div>01-11 11:59:45. 762</div></td>
+                <td class="tbl_d"><div>29789</div></td>
+                <td class="tbl_d"><div>push_service_factory</div></td>
+                <td class="tbl_d"><div>Explicit concurrent mark sweep GC freed</div></td>
+            </tr>
+            <tr>
+                <th class="tbl_h"><div>2</div></th>
+                <td class="tbl_d"><div>info</div></td>
+                <td class="tbl_d"><div>01-11 11:59:45. 762</div></td>
+                <td class="tbl_d"><div>29789</div></td>
+                <td class="tbl_d"><div>push_service_factory</div></td>
+                <td class="tbl_d"><div>Explicit concurrent mark sweep GC freed Explicit concurrent mark sweep GC freed Explicit concurrent mark sweep GC freed</div></td>
+            </tr>
+            <tr>
+                <th class="tbl_h"><div>3</div></th>
+                <td class="tbl_d"><div>info</div></td>
+                <td class="tbl_d"><div>01-11 11:59:45. 762</div></td>
+                <td class="tbl_d"><div>29789</div></td>
+                <td class="tbl_d"><div>push_service_factory</div></td>
+                <td class="tbl_d"><div>Explicit concurrent mark sweep GC freed</div></td>
+            </tr>
+            <tr>
+                <th class="tbl_h"><div>1</div></th>
+                <td class="tbl_d"><div>Verbos</div></td>
+                <td class="tbl_d"><div>01-11 11:59:45. 762</div></td>
+                <td class="tbl_d"><div>29789</div></td>
+                <td class="tbl_d"><div>push_service_factory</div></td>
+                <td class="tbl_d"><div>Explicit concurrent mark sweep GC freed</div></td>
+            </tr>
+            <tr>
+                <th class="tbl_h"><div>2</div></th>
+                <td class="tbl_d"><div>info</div></td>
+                <td class="tbl_d"><div>01-11 11:59:45. 762</div></td>
+                <td class="tbl_d"><div>29789</div></td>
+                <td class="tbl_d"><div>push_service_factory</div></td>
+                <td class="tbl_d"><div>Explicit concurrent mark sweep GC freed Explicit concurrent mark sweep GC freed Explicit concurrent mark sweep GC freed</div></td>
+            </tr>
+            <tr>
+                <th class="tbl_h"><div>3</div></th>
+                <td class="tbl_d"><div>info</div></td>
+                <td class="tbl_d"><div>01-11 11:59:45. 762</div></td>
+                <td class="tbl_d"><div>29789</div></td>
+                <td class="tbl_d"><div>push_service_factory</div></td>
+                <td class="tbl_d"><div>Explicit concurrent mark sweep GC freed</div></td>
+            </tr>
+            <tr>
+                <th class="tbl_h"><div>1</div></th>
+                <td class="tbl_d"><div>Verbos</div></td>
+                <td class="tbl_d"><div>01-11 11:59:45. 762</div></td>
+                <td class="tbl_d"><div>29789</div></td>
+                <td class="tbl_d"><div>push_service_factory</div></td>
+                <td class="tbl_d"><div>Explicit concurrent mark sweep GC freed</div></td>
+            </tr>
+            <tr>
+                <th class="tbl_h"><div>2</div></th>
+                <td class="tbl_d"><div>info</div></td>
+                <td class="tbl_d"><div>01-11 11:59:45. 762</div></td>
+                <td class="tbl_d"><div>29789</div></td>
+                <td class="tbl_d"><div>push_service_factory</div></td>
+                <td class="tbl_d"><div>Explicit concurrent mark sweep GC freed Explicit concurrent mark sweep GC freed Explicit concurrent mark sweep GC freed</div></td>
+            </tr>
+            <tr>
+                <th class="tbl_h"><div>3</div></th>
+                <td class="tbl_d"><div>info</div></td>
+                <td class="tbl_d"><div>01-11 11:59:45. 762</div></td>
+                <td class="tbl_d"><div>29789</div></td>
+                <td class="tbl_d"><div>push_service_factory</div></td>
+                <td class="tbl_d"><div>Explicit concurrent mark sweep GC freed</div></td>
+            </tr>
+            <tr>
+                <th class="tbl_h"><div>1</div></th>
+                <td class="tbl_d"><div>Verbos</div></td>
+                <td class="tbl_d"><div>01-11 11:59:45. 762</div></td>
+                <td class="tbl_d"><div>29789</div></td>
+                <td class="tbl_d"><div>push_service_factory</div></td>
+                <td class="tbl_d"><div>Explicit concurrent mark sweep GC freed</div></td>
+            </tr>
+            <tr>
+                <th class="tbl_h"><div>2</div></th>
+                <td class="tbl_d"><div>info</div></td>
+                <td class="tbl_d"><div>01-11 11:59:45. 762</div></td>
+                <td class="tbl_d"><div>29789</div></td>
+                <td class="tbl_d"><div>push_service_factory</div></td>
+                <td class="tbl_d"><div>Explicit concurrent mark sweep GC freed Explicit concurrent mark sweep GC freed Explicit concurrent mark sweep GC freed</div></td>
+            </tr>
+            <tr>
+                <th class="tbl_h"><div>3</div></th>
+                <td class="tbl_d"><div>info</div></td>
+                <td class="tbl_d"><div>01-11 11:59:45. 762</div></td>
+                <td class="tbl_d"><div>29789</div></td>
+                <td class="tbl_d"><div>push_service_factory</div></td>
+                <td class="tbl_d"><div>Explicit concurrent mark sweep GC freed</div></td>
+            </tr>
+            <tr>
+                <th class="tbl_h"><div>1</div></th>
+                <td class="tbl_d"><div>Verbos</div></td>
+                <td class="tbl_d"><div>01-11 11:59:45. 762</div></td>
+                <td class="tbl_d"><div>29789</div></td>
+                <td class="tbl_d"><div>push_service_factory</div></td>
+                <td class="tbl_d"><div>Explicit concurrent mark sweep GC freed</div></td>
+            </tr>
+            <tr>
+                <th class="tbl_h"><div>2</div></th>
+                <td class="tbl_d"><div>info</div></td>
+                <td class="tbl_d"><div>01-11 11:59:45. 762</div></td>
+                <td class="tbl_d"><div>29789</div></td>
+                <td class="tbl_d"><div>push_service_factory</div></td>
+                <td class="tbl_d"><div>Explicit concurrent mark sweep GC freed Explicit concurrent mark sweep GC freed Explicit concurrent mark sweep GC freed</div></td>
+            </tr>
+            <tr>
+                <th class="tbl_h"><div>3</div></th>
+                <td class="tbl_d"><div>info</div></td>
+                <td class="tbl_d"><div>01-11 11:59:45. 762</div></td>
+                <td class="tbl_d"><div>29789</div></td>
+                <td class="tbl_d"><div>push_service_factory</div></td>
+                <td class="tbl_d"><div>Explicit concurrent mark sweep GC freed</div></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
